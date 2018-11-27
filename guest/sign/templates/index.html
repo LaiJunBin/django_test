@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="row">
+    <a href="{% url 'guest' %}" class="col-md-6 link">
+        <div class="card text-center">
+            <img class="card-img-top image bg-info" src="holder.js/100px180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Guest</h4>
+                <p class="card-text">Watch All Guest</p>
+            </div>
+        </div>
+    </a>
+    <a href="{% url 'event' %}" class="col-md-6 link">
+        <div class="card text-center">
+            <img class="card-img-top image bg-warning" src="holder.js/100px180/" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Event</h4>
+                <p class="card-text">Watch All Event</p>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+{% endblock %}

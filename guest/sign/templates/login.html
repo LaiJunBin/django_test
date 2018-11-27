@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form action="/login/" method="post">
+    {% csrf_token %}
+    <strong class="text-danger">{{ error }}</strong>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required class="form-control" name="username" placeholder="Input Username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required class="form-control" name="password" placeholder="Input Password">
+        <button class="btn btn-success w-100 mt-2" type="submit">Login</button>
+    </div>
+</form>
+
+{% endblock %}
