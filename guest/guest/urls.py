@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^login/$',sign.login, name='login'),
     url(r'^logout/$',sign.logout, name='logout'),
     url(r'^guest/$',sign.guest, name='guest'),
+    url(r'^guest/add/$',sign.guest_add, name='guest_add'),
     url(r'^event/$',sign.event, name='event'),
     url(r'^$',sign.index),
-    
+
 ]

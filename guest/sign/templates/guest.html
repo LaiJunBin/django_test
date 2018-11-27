@@ -2,6 +2,56 @@
 
 {% block content %}
 
+<div class="d-flex align-items-center">
+    <h1 class="mb-3 mr-3 d-inline">All Events</h1>
+
+    {% if username %}
+    <a href="{% url 'guest_add' %}" class="btn btn-secondary h-100">Add Event</a>
+    {% endif %}
+
+</div>
+
+{% if events %}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Limit</th>
+                <th>Address</th>
+                <th>Event Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evt in events %}
+            <tr>
+                <td>{{ evt.id }}</td>
+                <td>{{ evt.name }}</td>
+                <td>{{ evt.status }}</td>
+                <td>{{ evt.limit }}</td>
+                <td>{{ evt.address }}</td>
+                <td>{{ evt.start_time }}</td>
+                <td>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+
+<div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Event</strong> Empty...
+</div>
+
+{% endif %}
+
 
 
 {% endblock %}
