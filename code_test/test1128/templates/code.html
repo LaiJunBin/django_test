@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            setTimeout(()=>{
+
+            $.ajax({
+                url:'http://localhost:8000/format/',
+                success:function(res){
+                    $("html").html(res);
+                    console.log(res)
+
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            })
+            },1000)
+
+            function load_code(){
+                $.ajax({
+                    url:'http://localhost:8000/code/',
+                    dataType:'JSON',
+                    success:function(res){
+                        $(".static-editor-code").html(res.code);
+                        $(".static-editor-gutter").html(res.gutter);
+                        load_code()
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                })
+            }
+            load_code();
+
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
