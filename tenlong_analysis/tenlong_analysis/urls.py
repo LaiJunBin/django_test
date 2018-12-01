@@ -21,7 +21,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^crawler/', include([
         url(r'^$', crawler.index),
-        url(r'^zh-tw/$', crawler.get_zh_tw_books),
+        url(r'^zh-tw/page/$', crawler.get_zh_tw_books),
+        url(r'^zh-tw/page/(?P<page>[0-9]+)$', crawler.get_zh_tw_books_by_page),
+        url(r'^zh-tw/page/max$', crawler.get_zh_tw_book_max_page),
     ])),
 
 ]
